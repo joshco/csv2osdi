@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bundle exec ruby ./csv2osdi.rb

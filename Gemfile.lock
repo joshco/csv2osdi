@@ -1,0 +1,58 @@
+GIT
+  remote: git://github.com/joshco/hyperclient.git
+  revision: 7b79ed988981899c5ffe27ed7bf57a0536d4269b
+  ref: develop
+  specs:
+    hyperclient (0.7.3)
+      faraday
+      faraday-digestauth
+      faraday_hal_middleware
+      faraday_middleware
+      futuroscope
+      net-http-digest_auth
+      uri_template
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.0)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
+    faraday-detailed_logger (1.0.0)
+      faraday
+    faraday-digestauth (0.2.1)
+      faraday (~> 0.7)
+      net-http-digest_auth (~> 1.4)
+    faraday_hal_middleware (0.0.1)
+      faraday_middleware (>= 0.9, < 0.10)
+    faraday_middleware (0.9.2)
+      faraday (>= 0.7.4, < 0.10)
+    futuroscope (0.1.11)
+    i18n (0.8.1)
+    json (1.8.6)
+    minitest (5.10.1)
+    multipart-post (2.0.0)
+    net-http-digest_auth (1.4.1)
+    thread_safe (0.3.6)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    uri_template (0.7.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  faraday-detailed_logger
+  hyperclient!
+
+RUBY VERSION
+   ruby 2.3.1p112
+
+BUNDLED WITH
+   1.13.7

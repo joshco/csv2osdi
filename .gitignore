@@ -1,0 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/*
+*.log
+config.yml
+config.neat.yml
