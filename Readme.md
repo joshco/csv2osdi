@@ -71,10 +71,10 @@ osdi_log: false
 ```
 
 | 0          | 1  |  2  |   3  | 4 | 5 | 6 | 7     |  8 | 9   | 10 | 11 | 12 | 13 |
-|-------------------------------------------------------------------------|
+|------------|----|----|-------|---|---|----|------|----|-----|----|----|---|----------|
 |Household ID|Last|First|Middle|YoB|MoB|DoB|Address|City|State|Zip|Email| Volunteer_tag|color|
 
-```
+```yaml
 schema:
   email_address: 11
   given_name: 2 #first name
