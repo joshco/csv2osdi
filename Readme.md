@@ -22,7 +22,7 @@ csv2osdi requires a working AEP and [osdi:person_signup_helper](http://opensuppo
 
 > If you are on Windows, run bundle exec ruby csv2osdi.rb
 
-> csv2osdi comes with a sample CSV and config-sample to test with.
+> csv2osdi comes with a [sample CSV](sample.csv) and config-sample to test with.
 
 ## Configuration
 
@@ -66,6 +66,10 @@ osdi_log: false
 # the schema representing your CSV file structure
 # For each field, set the column number with a zero based integer.
 # Eg, the first column is column 0
+# this schema is for the included [sample.csv](sample.csv) file which has columns:
+#
+#Household ID,Last,First,Middle,YoB,MoB,DoB,Address,City,State,Zip,Email, Volunteer_tag,color
+
 schema:
   email_address: 11
   given_name: 2 #first name
