@@ -10,7 +10,7 @@ For systems that do not natively support phone numbers, csv2osdi can be configur
 
 ## Compliance
 
-csv2osdi requires a working AEP and osdi:person_signup_helper to operate.
+csv2osdi requires a working AEP and [osdi:person_signup_helper](http://opensupporter.github.io/osdi-docs/person_signup.html) to operate.
 
 ## Install and Usage
 
