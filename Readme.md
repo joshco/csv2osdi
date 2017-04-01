@@ -66,10 +66,15 @@ osdi_log: false
 # the schema representing your CSV file structure
 # For each field, set the column number with a zero based integer.
 # Eg, the first column is column 0
-# this schema is for the included [sample.csv](sample.csv) file which has columns:
+# this schema is for the included sample.csv file which has columns:
 #
-#Household ID,Last,First,Middle,YoB,MoB,DoB,Address,City,State,Zip,Email, Volunteer_tag,color
+```
 
+| 0          | 1  |  2  |   3  | 4 | 5 | 6 | 7     |  8 | 9   | 10 | 11 | 12 | 13
+--------------------------------------------------------------------------
+|Household ID|Last|First|Middle|YoB|MoB|DoB|Address|City|State|Zip|Email| Volunteer_tag|color
+
+```
 schema:
   email_address: 11
   given_name: 2 #first name
