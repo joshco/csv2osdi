@@ -95,6 +95,28 @@ schema:
 
 ```
 
+## Logging
+
+You can specify a log file which csv2osdi will write it's output to in addition to STDOUT.
+
+Example output
+
+```shell
+INFO 2017-04-01 05:17:30 +0000: csv2osdi Starting up, chillin with https://actionnetwork.org/api/v2/
+INFO 2017-04-01 05:17:31 +0000: All needed tags are present.  Proceeding.
+INFO 2017-04-01 05:17:31 +0000: Uploading with offset 0 and limit NONE
+INFO 2017-04-01 05:17:31 +0000: Uploaded row 0 Lawrence Woodard lawrence.woodard@fake.osdi.info with tags volunteer as https://actionnetwork.org/api/v2/people/730c4355-d28b-4665-b6be-094dfd6e73a3
+INFO 2017-04-01 05:17:32 +0000: Uploaded row 1 Joshua Carter joshua.carter@fake.osdi.info with tags volunteer as https://actionnetwork.org/api/v2/people/4a6b4626-eb11-4c50-ac0b-cb4efbaaa5be
+INFO 2017-04-01 05:17:33 +0000: Uploaded row 2 Melissa Scott melissa.scott@fake.osdi.info with tags volunteer as https://actionnetwork.org/api/v2/people/98b3ee68-1836-4640-960d-e1987206a06d
+INFO 2017-04-01 05:17:34 +0000: Uploaded row 3 Richard Mcclain richard.mcclain@fake.osdi.info with tags volunteer as https://actionnetwork.org/api/v2/people/772ac5d4-62b2-4388-921f-3beb031c54ad
+INFO 2017-04-01 05:17:35 +0000: Uploaded row 4 Scott Jefferson scott.jefferson@fake.osdi.info with tags volunteer as https://actionnetwork.org/api/v2/people/5746c123-2f9b-4c2a-9b74-d1863b88e4a0
+INFO 2017-04-01 05:17:36 +0000: Uploaded row 5 Johnny Mathis johnny.mathis@fake.osdi.info with tags volunteer as https://actionnetwork.org/api/v2/people/812e48a6-662b-4952-ad88-fa42ac50ec29
+INFO 2017-04-01 05:17:37 +0000: Uploaded row 6 Frank Charles frank.charles@fake.osdi.info with tags  as https://actionnetwork.org/api/v2/people/90910144-e8e1-48a7-8451-f358b8133b97
+INFO 2017-04-01 05:17:37 +0000: Uploaded row 7 Walter Gamble walter.gamble@fake.osdi.info with tags  as https://actionnetwork.org/api/v2/people/bf024758-eea1-487e-9a74-1c626b3820e5
+INFO 2017-04-01 05:17:38 +0000: Uploaded row 8 Scott Williams scott.williams@fake.osdi.info with tags  as https://actionnetwork.org/api/v2/people/d422466d-364d-4cdf-b6db-339a8be9af19
+INFO 2017-04-01 05:17:38 +0000: csv2osdi finished.  Total rows 9 Successes 9 Failures 0
+```
+
 ## Reference
 
 [OSDI API Reference](http://opensupporter.github.io/osdi-docs/)
