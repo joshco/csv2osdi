@@ -67,13 +67,13 @@ osdi_log: false
 # For each field, set the column number with a zero based integer.
 # Eg, the first column is column 0
 schema:
-  email_address: 11,
-  given_name: 2, #first name
-  family_name: 1, # last name
-  #mobile_phone: 3,
-  locality: 8, # city
-  region: 9, # state
-  postal_code: 10, # zip code
+  email_address: 11
+  given_name: 2 #first name
+  family_name: 1 # last name
+  #mobile_phone: 3
+  locality: 8 # city
+  region: 9 # state
+  postal_code: 10 # zip code
 
   # set any column to be the specified custom field on the remote system
   custom_fields:
@@ -81,8 +81,8 @@ schema:
 
   # the presence of any value in the specified column means that this row should be tagged with the specified tag name
   tags:
-    volunteer: 12,
-    #foobar: 13,
+    volunteer: 12
+    #foobar: 13
     #volunteer_master: 14
 
   # if your system does not natively support phone numbers, they can be inserted into custom fields named below

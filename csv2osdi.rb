@@ -40,6 +40,7 @@ if APP_CONFIG[:verify_tags_first]==true
 
   if diff.present?
     logger.info "Missing Tags, cannot proceed until you create these tags: #{diff.map(&:to_s)}"
+    exit(1)
 
   else
     logger.info "All needed tags are present.  Proceeding."
