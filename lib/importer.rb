@@ -81,7 +81,7 @@ class Importer
     rows=CSV.read(@filename, headers: true)
 
     run_offset= self.offset ? self.offset : 0
-    run_limit=run_offset + (self.limit ? self.limit : (rows.count - 1))
+    run_limit=run_offset + (self.limit ? (self.limit - 1) : (rows.count - 1))
     rows_to_process = rows[run_offset..run_limit]
 
     osdi_rows=rows_to_process.map { |r| self.osdi_for_row r }

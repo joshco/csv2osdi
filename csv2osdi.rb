@@ -34,12 +34,13 @@ osdi=OSDI.new(
 if APP_CONFIG[:verify_tags_first]==true
   my_tags=Set.new((APP_CONFIG.dig(:schema, :tags)||{}).map { |k, v| k.downcase })
 
-  system_tags= Set.new(osdi.system_tags.map { |t| t[:name] })
+  system_tags= Set.new(osdi.system_tags.map { |t| t[:name].downcase })
 
   diff=my_tags - system_tags
 
   if diff.present?
-    logger.info "Missing Tags, cannot proceed until you create these tags: #{diff.map(&:to_s)}"
+    logger.warn "Missing Tags, cannot proceed until you create these tags: #{diff.map(&:to_s)}"
+    logger.warn "Remote tags: #{system_tags.map(&:to_s)}"
     exit(1)
 
   else
@@ -59,7 +60,8 @@ osdi_rows=importer.run
 
 errors_count=0
 success_count=0
-rows_count=0
+processed_rows_count=0
+rows_count=osdi_rows.count
 
 i=offset
 logger.info("Uploading with offset #{offset} and limit #{limit || 'NONE'}")
@@ -69,18 +71,19 @@ osdi_rows.each do |r|
   begin
     info=Mixer.osdi_info(r)
 
+    row_seq="#{i+1}/#{rows_count}"
     logger.debug "Processing #{r}" if APP_CONFIG[:osdi_log]==true
 
     response=osdi.signup(r)
     self_link=response._links[:self]
 
-    logger.info "Uploaded row #{i} #{info} as #{self_link}"
+    logger.info "Uploaded row #{row_seq} #{info} as #{self_link}"
     success_count+=1
 
   rescue Faraday::ConnectionFailed, Faraday::TimeoutError => ex
     unless retry_attempts > (max_retries-1)
       retry_attempts+=1
-      logger.warn "Timeout on row #{i} #{info} retrying #{retry_attempts}"
+      logger.warn "Timeout on row #{row_seq} #{info} retrying #{retry_attempts}"
       retry
 
     else
@@ -89,16 +92,16 @@ osdi_rows.each do |r|
     end
 
   rescue Faraday::ClientError => ex
-    logger.warn "Error for row #{i} #{info} #{ex.message} #{ex.try(:response).try(:[], :body)}"
+    logger.warn "Error for row #{row_seq} #{info} #{ex.message} #{ex.try(:response).try(:[], :body)}"
     errors_count+=1
   end
 
   i+=1
 
-  rows_count+=1
+  processed_rows_count+=1
 
 end
 
-logger.info("csv2osdi finished.  Total rows #{rows_count} Successes #{success_count} Failures #{errors_count}")
+logger.info("csv2osdi finished.  Total rows processed #{processed_rows_count} Successes #{success_count} Failures #{errors_count}")
 
 
