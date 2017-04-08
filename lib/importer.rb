@@ -47,6 +47,14 @@ class Importer
     end
     data[:phone_numbers]=phone_numbers if phone_numbers.present?
 
+    addr={}
+    addr[:region]=r[s[:region]]
+    addr[:locality]=r[s[:locality]]
+    addr[:postal_code]=r[s[:postal_code]]
+
+    addr_clean=Mixer.clean addr
+    data[:postal_addresses]=[addr_clean] if addr_clean.present?
+    
     if cfs=s[:custom_fields]
 
       cfs.each do |k, col|
@@ -81,6 +89,7 @@ class Importer
     rows=CSV.read(@filename, headers: true)
 
     run_offset= self.offset ? self.offset : 0
+    run_offset-=2 if run_offset > 0
     run_limit=run_offset + (self.limit ? (self.limit - 1) : (rows.count - 1))
     rows_to_process = rows[run_offset..run_limit]
 
