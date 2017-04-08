@@ -16,7 +16,7 @@ logger.formatter = proc do |severity, datetime, progname, msg|
   "#{severity} #{datetime}: #{msg}\n"
 end
 
-limit=APP_CONFIG[:row_limit]
+limit=APP_CONFIG[:row_limit] || 0
 offset=APP_CONFIG[:offset] || 0
 max_retries=APP_CONFIG[:max_retries].presence || 3
 
