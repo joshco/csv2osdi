@@ -44,12 +44,12 @@ class OSDI
   end
 
   def system_tags
-    hc=self.hyperclient
+    self.hc||=self.hyperclient
     tags=hc['osdi:tags']['osdi:tags']
 
   end
   def signup(signup_obj)
-    hc=self.hyperclient
+    self.hc||=self.hyperclient
     psh=hc._links['osdi:person_signup_helper']
     json=Mixer.clean(signup_obj).to_json
 
