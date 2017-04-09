@@ -57,7 +57,7 @@ schema:
   # if your system does not natively support phone numbers, they can be inserted into custom fields named below
   phone_custom_fields:
     mobile_phone: mobile_phone
-    home_phone: mobile_phone
+    home_phone: home_phone
 
 
 
